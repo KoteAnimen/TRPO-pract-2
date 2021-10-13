@@ -31,15 +31,14 @@ namespace TRPO_pract_2
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_Exit = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_AboutUs = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btn_GetAnswer = new System.Windows.Forms.Button();
             this.tbx_AnswerS = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.nud_X = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btn_GetAnswerN = new System.Windows.Forms.Button();
@@ -49,11 +48,12 @@ namespace TRPO_pract_2
             this.label4 = new System.Windows.Forms.Label();
             this.tbx_Y0 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.nud_X = new System.Windows.Forms.NumericUpDown();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_X)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_X)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -61,7 +61,7 @@ namespace TRPO_pract_2
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
-            this.справкаToolStripMenuItem});
+            this.btn_AboutUs});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(305, 28);
@@ -71,30 +71,32 @@ namespace TRPO_pract_2
             // файлToolStripMenuItem
             // 
             this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.выходToolStripMenuItem});
+            this.btn_Exit});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
-            // выходToolStripMenuItem
+            // btn_Exit
             // 
-            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
-            this.выходToolStripMenuItem.Text = "Выход";
+            this.btn_Exit.Name = "btn_Exit";
+            this.btn_Exit.Size = new System.Drawing.Size(224, 26);
+            this.btn_Exit.Text = "Выход";
+            this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
-            // справкаToolStripMenuItem
+            // btn_AboutUs
             // 
-            this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_AboutUs.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.оПрограммеToolStripMenuItem});
-            this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
-            this.справкаToolStripMenuItem.Text = "Справка";
+            this.btn_AboutUs.Name = "btn_AboutUs";
+            this.btn_AboutUs.Size = new System.Drawing.Size(81, 24);
+            this.btn_AboutUs.Text = "Справка";
             // 
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
+            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
             // tabControl1
             // 
@@ -103,7 +105,7 @@ namespace TRPO_pract_2
             this.tabControl1.Location = new System.Drawing.Point(13, 28);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(280, 230);
+            this.tabControl1.Size = new System.Drawing.Size(280, 235);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -116,14 +118,14 @@ namespace TRPO_pract_2
             this.tabPage1.Location = new System.Drawing.Point(4, 38);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(272, 188);
+            this.tabPage1.Size = new System.Drawing.Size(272, 193);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Задание №1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // btn_GetAnswer
             // 
-            this.btn_GetAnswer.Location = new System.Drawing.Point(11, 135);
+            this.btn_GetAnswer.Location = new System.Drawing.Point(11, 139);
             this.btn_GetAnswer.Name = "btn_GetAnswer";
             this.btn_GetAnswer.Size = new System.Drawing.Size(246, 43);
             this.btn_GetAnswer.TabIndex = 4;
@@ -148,18 +150,6 @@ namespace TRPO_pract_2
             this.label2.TabIndex = 2;
             this.label2.Text = "S:";
             // 
-            // nud_X
-            // 
-            this.nud_X.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.nud_X.Location = new System.Drawing.Point(11, 35);
-            this.nud_X.Name = "nud_X";
-            this.nud_X.Size = new System.Drawing.Size(246, 34);
-            this.nud_X.TabIndex = 1;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -181,7 +171,7 @@ namespace TRPO_pract_2
             this.tabPage2.Location = new System.Drawing.Point(4, 38);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(272, 188);
+            this.tabPage2.Size = new System.Drawing.Size(272, 194);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Задание №2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -245,11 +235,18 @@ namespace TRPO_pract_2
             this.label3.TabIndex = 0;
             this.label3.Text = "Y0";
             // 
+            // nud_X
+            // 
+            this.nud_X.Location = new System.Drawing.Point(11, 35);
+            this.nud_X.Name = "nud_X";
+            this.nud_X.Size = new System.Drawing.Size(246, 34);
+            this.nud_X.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(305, 271);
+            this.ClientSize = new System.Drawing.Size(305, 273);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -267,9 +264,9 @@ namespace TRPO_pract_2
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_X)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_X)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,15 +276,14 @@ namespace TRPO_pract_2
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem btn_Exit;
+        private System.Windows.Forms.ToolStripMenuItem btn_AboutUs;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button btn_GetAnswer;
         private System.Windows.Forms.TextBox tbx_AnswerS;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown nud_X;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button btn_GetAnswerN;
@@ -297,6 +293,7 @@ namespace TRPO_pract_2
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbx_Y0;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown nud_X;
     }
 }
 

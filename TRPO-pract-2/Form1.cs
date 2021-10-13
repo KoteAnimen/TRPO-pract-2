@@ -44,6 +44,7 @@ namespace TRPO_pract_2
             int nCounter = 2;
             double y0 = 0;
             double y1 = 0;
+            double currentY = 0;
             try
             {
                 y0 = Convert.ToDouble(tbx_Y0.Text);
@@ -55,11 +56,23 @@ namespace TRPO_pract_2
             }
             n.Add(y0);
             n.Add(y1);
-            while(Math.Abs(n[nCounter - 1] - n[nCounter - 2]) > )
+            while(Math.Abs(n[nCounter - 1] - n[nCounter - 2]) >= 2.71828182846)
             {
+                currentY = 1 / Math.Pow((1 + Math.Pow(Math.Sin(n[nCounter - 1]), 2) + Math.Pow(Math.Sin(n[nCounter - 2]), 2)), (double)1/2);
+                nCounter++;
+                n.Add(currentY);
+            }
+            tbx_AnswerN.Text = currentY.ToString();            
+        }
 
-            }           
-            
+        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Практическая работа №2, вариант 8, Филяк, ИСП-41", "О программе");
+        }
+
+        private void btn_Exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
